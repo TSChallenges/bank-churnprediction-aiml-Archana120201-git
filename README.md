@@ -4,8 +4,9 @@ You are tasked with building a predictive model to determine if a customer will 
 
 ### Task Breakdown:
 ### Task 1: Data Exploration
+### Points: 10
+
 #### Load the Dataset
-#### Points: 10
 Load the Bank Customer Churn Dataset into a Pandas DataFrame.
 Check for missing values and understand the basic structure of the data.
 
@@ -18,14 +19,14 @@ Generate summary statistics (mean, median, mode) for key variables.
 
 
 ### Task 2: Feature Engineering
-#### Points: 10
+### Points: 10
 Create new features from the existing columns. For example:
 Create age groups.
 Categorize account balances.
 Encode categorical features like country, gender, and credit_card.
 
 ### Task 5: Model Training
-#### Points: 10
+### Points: 10
 Train a machine learning classification model (such as Random Forest or XGBoost) to predict whether a customer will churn.
 Use the cleaned and feature-engineered data as input.
 
