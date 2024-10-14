@@ -2,7 +2,7 @@
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+# from sklearn.ensemble import RandomForestClassifier       # Can use either of the classifiers(RandomForestClassifier/XGBClassifier) for model training      
 from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, f1_score
 

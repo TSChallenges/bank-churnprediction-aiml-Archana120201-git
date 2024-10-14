@@ -1,9 +1,6 @@
 import pandas as pd
 import seaborn as sns
-import numpy as np
-import matplotlib.pyplot as plt         #  importing some basic libraries to work with the dataset and for visualization
-
-
+import matplotlib.pyplot as plt
 
 def load_data(filepath):
     """
@@ -28,28 +25,36 @@ def generate_summary_statistics(df):
 
 def visualize_distributions(df):
     """
-    Visualize distributions of age, balance, credit_score, and estimated_salary.
+    Visualize distributions of age, balance, credit_score, and estimated_salary,
+    and save each plot as a separate PNG file.
     """
-    plt.figure(figsize=(12, 10))
-    
-    plt.subplot(2, 2, 1)
+    # Age distribution
+    plt.figure(figsize=(6, 4))
     sns.histplot(df['age'], kde=True)
     plt.title('Age Distribution')
-    
-    plt.subplot(2, 2, 2)
+    plt.savefig('age_distribution.png')
+    plt.close()  # Close the figure to ensure no overlap with the next plot
+
+    # Balance distribution
+    plt.figure(figsize=(6, 4))
     sns.histplot(df['balance'], kde=True)
     plt.title('Balance Distribution')
-    
-    plt.subplot(2, 2, 3)
+    plt.savefig('balance_distribution.png')
+    plt.close()  # Close the figure to ensure no overlap with the next plot
+
+    # Credit score distribution
+    plt.figure(figsize=(6, 4))
     sns.histplot(df['credit_score'], kde=True)
     plt.title('Credit Score Distribution')
-    
-    plt.subplot(2, 2, 4)
+    plt.savefig('credit_score_distribution.png')
+    plt.close()  # Close the figure to ensure no overlap with the next plot
+
+    # Estimated salary distribution
+    plt.figure(figsize=(6, 4))
     sns.histplot(df['estimated_salary'], kde=True)
     plt.title('Estimated Salary Distribution')
-    
-    plt.tight_layout()
-    plt.show()
+    plt.savefig('estimated_salary_distribution.png')
+    plt.close()  # Close the figure to ensure no overlap with the next plot
 
 def main():
     # Load data
@@ -61,8 +66,9 @@ def main():
     # Generate summary statistics
     generate_summary_statistics(df)
     
-    # Visualize distributions
+    # Visualize distributions and save the plots
     visualize_distributions(df)
 
 if __name__ == "__main__":
     main()
+
