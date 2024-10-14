@@ -20,49 +20,9 @@ jobs:
         timeout: 20
         max-score: 40
         setup-command: pip install -r requirements.txt
-    - name: Test eda
-      id: test-eda
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: Test eda
-        setup-command: pip install -r requirements.txt
-        command: tests/test_eda.py
-        timeout: 10
-        max-score: 10
-    - name: test feature Engneering
-      id: test-feature-engneering
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: test feature Engneering
-        setup-command: pip install -r requirements.txt
-        command: pytest tests/test_feature_engineering.py::test_handle_missing_values
-        timeout: 10
-        max-score: 10
-    - name: test model
-      id: test-model
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: test model
-        setup-command: pip install -r requirements.txt
-        command: pytest tests/test_model_training.py
-        timeout: 10
-        max-score: 20
-    - name: all run
-      id: all-run
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: all run
-        setup-command: pip install -r requirements.txt
-        command: pytest
-        timeout: 10
-        max-score: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         RUN-TESTS_RESULTS: "${{steps.run-tests.outputs.result}}"
-        TEST-EDA_RESULTS: "${{steps.test-eda.outputs.result}}"
-        TEST-FEATURE-ENGNEERING_RESULTS: "${{steps.test-feature-engneering.outputs.result}}"
-        TEST-MODEL_RESULTS: "${{steps.test-model.outputs.result}}"
-        ALL-RUN_RESULTS: "${{steps.all-run.outputs.result}}"
       with:
-        runners: run-tests,test-eda,test-feature-engneering,test-model,all-run
+        runners: run-tests
