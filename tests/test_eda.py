@@ -4,7 +4,7 @@ import pytest
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
-from src.eda import load_data, check_missing_values, generate_summary_statistics, visualize_distributions
+from src.data_exploration import load_data, check_missing_values, generate_summary_statistics, visualize_distributions
 
 def test_load_data():
     df = load_data('data/bank_churn.csv')
