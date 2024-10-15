@@ -20,9 +20,14 @@ def handle_missing_values(df):
 def create_age_groups(df):
     bins = [17, 30, 45, 60, 100]  # Age ranges
     labels = ['young', 'adult', 'middle-aged', 'senior']  # Labels for age groups
-    df['age_group'] = pd.cut(df['age'], bins=bins, labels=labels)
-    df = df.dropna()
+    
+    # TODO: Categorize the 'age' column into 'age_groups' using pd.cut()
+    
+    # TODO: Drop rows with missing values in the 'age_group' column
+    # df = df.dropna(subset=['age_group'])  
+    
     return df
+
 
 def encode_categorical_features(df):
     """
@@ -30,9 +35,13 @@ def encode_categorical_features(df):
     """
     le = LabelEncoder()
     categorical_cols = ['country', 'gender', 'credit_card']
-    for col in categorical_cols:
-        df[col] = le.fit_transform(df[col])
+    
+    # TODO: Loop through categorical columns and apply LabelEncoder
+    # for col in categorical_cols:
+    #     df[col] = le.fit_transform(df[col])
+    
     return df
+
 
 def save_processed_data(df, filepath):
     """
