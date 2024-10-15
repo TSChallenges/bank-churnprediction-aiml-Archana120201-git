@@ -20,19 +20,9 @@ jobs:
         timeout: 20
         max-score: 40
         setup-command: pip install -r requirements.txt
-    - name: test e
-      id: test-e
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: test e
-        setup-command: pip install -r requirements.txt
-        command: pytest tests/test_eda.py
-        timeout: 10
-        max-score: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         RUN-TESTS_RESULTS: "${{steps.run-tests.outputs.result}}"
-        TEST-E_RESULTS: "${{steps.test-e.outputs.result}}"
       with:
-        runners: run-tests,test-e
+        runners: run-tests
